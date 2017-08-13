@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo slide-show
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+
+	<button onclick="next();">click to change</button>
+
+	<div class="slide_show">
+		<img id="image" src="w2.jpg">	
+	</div>
+
+
+	</div>
+
+<script>
+
+	var img_array = [ "w2.jpg", "w4.jpg", "w6.jpg" ];
+
+	var counter = 0;
+
+	function next(){
+		++counter;
+		document.getElementById( "image" ).src =  img_array[ counter ];
+		
+		if( counter == ( img_array.length -1 ) ){
+			counter = -1;
+		}
+		
+	}
+	
+
+</script>
+
+</body>
+</html>
+
