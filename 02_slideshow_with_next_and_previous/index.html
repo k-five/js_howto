@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo slide-show
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+
+	<button onclick="next();">next</button>
+	<p id="n">index: 0</p>
+	<button onclick="previous();">previous</button>
+	<p id="p">index: ?</p>
+
+	<div class="slide_show">
+		<img id="image" src="w2.jpg">	
+	</div>
+
+
+	</div>
+
+<script>
+
+	var img_array = [ "w2.jpg", "w4.jpg", "w6.jpg" ];
+
+	var counter = 0;
+
+	// we need indexes 0, 1, 2
+	function next(){
+		if( counter >= img_array.length - 1 ){
+			counter = -1;
+		}
+
+		++counter;
+
+		document.getElementById( "image" ).src =  img_array[ counter ];
+		document.getElementById( "n" ).innerHTML = "index: " + counter;
+	}
+
+	// we need indexes 2, 1, 0
+	function previous(){
+		if( counter <= 0 ){
+			counter = img_array.length;
+		}
+
+		--counter;
+
+		document.getElementById( "image" ).src =  img_array[ counter ];
+		document.getElementById( "p" ).innerHTML = "index: " + counter;
+	}
+
+
+	
+
+</script>
+
+</body>
+</html>
+
