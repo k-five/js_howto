@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo slide-show
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+
+
+
+	<div class="slide_show">
+
+		<div class="big_dot">
+
+			<a class="dot" onclick="slide(0);" ></a>
+			<a class="dot" onclick="slide(1);" ></a>
+			<a class="dot" onclick="slide(2);" ></a>
+			
+		</div>
+
+		<a id="left_button"  onclick="previous();"><=</a>
+		<a id="right_button" onclick="next();">=></a>
+
+		<img id="image" src="w2.jpg">	
+	</div>
+
+
+	</div>
+
+<script>
+
+	// array of images
+	var img_array = [ "w2.jpg", "w4.jpg", "w6.jpg" ];
+
+	// index counter
+	counter = 0;
+
+	// it changes the active dot
+	function change_active( element ){
+		var dots = document.getElementsByClassName( "dot" );
+
+		for( var index = 0; index < dots.length; ++index ){
+			if( index == element ){
+				dots[ index ].style.opacity = "1";
+			} else {
+				dots[ index ].style.opacity = ".5";
+			}
+		}
+	}
+
+	function change_src( element ){
+		document.getElementById( "image" ).src =  img_array[ element ];
+	}
+
+	// first initializer for first run
+	change_active( 0 );
+
+	// we need indexes 0, 1, 2
+	function next(){
+		if( counter >= img_array.length - 1 ){
+			counter = -1;
+		}
+
+		++counter;
+
+		change_src( counter );
+		change_active( counter );
+
+		// thus it will be run infinitely
+		setTimeout(next, 5000); // Change image every 5 seconds
+	}
+
+	// we need indexes 2, 1, 0
+	function previous(){
+		if( counter <= 0 ){
+			counter = img_array.length;
+		}
+
+		--counter;
+
+		change_src( counter );
+		change_active( counter );
+	}
+
+	// make the dot active
+	function slide( element ){
+		change_src( element );
+		change_active( element );
+
+		// set the counter properly according to element
+		counter = element;
+	}
+
+	// first call the next. please go to next()
+	setTimeout(next, 5000); // Change image every 5 seconds
+	
+	
+	
+
+</script>
+
+</body>
+</html>
+
