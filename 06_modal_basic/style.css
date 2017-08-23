@@ -1,0 +1,15 @@
+.container{
+    border: 1px lime solid;
+    width: 60%;
+    height: 200px;
+    text-align: right;
+    background-color: #eee;
+
+    display:  none;
+}
+
+.close{
+    padding: 5px 10px;
+    background-color: #bbb;
+    cursor: pointer;
+}
