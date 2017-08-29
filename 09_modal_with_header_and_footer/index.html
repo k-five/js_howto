@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo modal
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+
+
+
+	<p>When you click the button, the value of the property [display] for class container, is modified to <mark>block</mark> and when you click on X, then it is become <mark>none</mark> </p>
+	<p>
+		For the second version we change some stylesheet.
+		For example. div.modal background-color to black with opacity 0.2 and height and width to 100%
+	</p>
+	<p>
+		Then <mark>position</mark> to fixed plus top and left to 0 to cover all the page
+	</p>
+	</p>
+		for animation add <mark>@keyframes</mark> and for .modal_content set position: relative. If you do not set this, it does not work, because the @keyframes cannot uses top property
+	</p>
+	<h3>
+		In fourth step, we add <mark>header</mark>	and <mark>footer</mark>	to our modal. And for that, a div for header and one for footer is required.
+		Then we can put div.header and div.footer <mark>inside</mark> the div.content, thus they all three become like a single content. I removed <mark>animation</mark> just for making the code simple. <mark>PLASE SEE STEP FIVE</mark>
+	</h3>
+	 <button onclick="show_modal();" >click here</button>
+
+	 <div id="modal" class="container">
+
+
+
+	 	<div class="modal_content">
+			 	<!-- modal header -->
+			 	<div class="modal_header">
+				 	<!-- the symbol X -->
+			 		<span class="close" onclick="hide_modal();">&times;</span>
+			 		<h3>header for modal</h3>
+			 	</div>
+	 		<h3>content for modal</h3>	
+	 		<h3>content for modal</h3>	
+	 		<h3>content for modal</h3>	
+
+	 			<div class="modal_footer">
+					<h3>footer for modal</h3>
+				</div>
+	 	</div>	
+	
+
+
+
+	 </div>
+
+	</div> 
+
+</body>
+
+<script>
+
+	var key = false;
+
+	function show_modal(){
+		// get element 0
+		var modal = document.getElementsByClassName( "container" )[ 0 ];
+		modal.style.display = "block";
+	}
+
+	function hide_modal(){
+		// get element 0
+		var modal = document.getElementsByClassName( "container" )[ 0 ];
+		modal.style.display = "none";
+	}
+
+
+</script>
+
+</body>
+</html>
+
