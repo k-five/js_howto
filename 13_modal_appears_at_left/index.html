@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo modal
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+
+
+
+	<p>When you click the button, the value of the property [display] for class container, is modified to <mark>block</mark> and when you click on X, then it is become <mark>none</mark> </p>
+	<p>
+		For the second version we change some stylesheet.
+		For example. div.modal background-color to black with opacity 0.2 and height and width to 100%
+	</p>
+	<p>
+		Then <mark>position</mark> to fixed plus top and left to 0 to cover all the page
+	</p>
+	</p>
+		for animation add <mark>@keyframes</mark> and for .modal_content set position: relative. If you do not set this, it does not work, because the @keyframes cannot uses top property
+	</p>
+	<p>
+		In fourth step, we add <mark>header</mark>	and <mark>footer</mark>	to our modal. And for that, a div for header and one for footer is required.
+		Then we can put div.header and div.footer <mark>inside</mark> the div.content, thus they all three become like a single content. I removed <mark>animation</mark> just for making the code simple.
+	</p>
+	<P>In this step (=five) we add <mark>animation</mark> to the div.content and with a note that it appears from top: -300px to top: 0, thus it does not go to the middle of the page and for that we can add <mark>padding-top: 200px</mark> inside the div.container.
+	</P>
+	<p>
+		In step 6, we want the div.content appears from bottom. And for that we can change <code>top: -300 and top: 0</code> to <mark>bottom: -300 and bottom: 0</mark>. Since the position is <mark>relative</mark> it comes up in to the middle of the page. If we change the position to <mark>fixed</mark> then it only appears at the bottom. And change the <mark>width:60%</mark> to <mark>100%</mark> so that it covers all the page long.	
+	</p>
+	<h3>If we change the <mark>position</mark> for .modal_content to fixed. and  then <mark>top: 0; left:0;</mark> and for animation: <mark> from left and to left</mark> then we can put the modal the left. <mark>THIS IS NOT A GOOD WAY OF implementing IT IN THE LEFT SIDE.</mark></h3>
+	 <button onclick="show_modal();" >click here</button>
+
+	 <div id="modal" class="container">
+
+
+
+	 	<div class="modal_content">
+			 	<!-- modal header -->
+			 	<div class="modal_header">
+				 	<!-- the symbol X -->
+			 		<span class="close" onclick="hide_modal();">&times;</span>
+			 		<h3>header for modal</h3>
+			 	</div>
+	 		<h3>content for modal</h3>	
+	 		<h3>content for modal</h3>	
+	 		<h3>content for modal</h3>	
+
+	 	</div>	
+	
+
+
+
+	 </div>
+
+	</div> 
+
+</body>
+
+<script>
+
+	var key = false;
+
+	function show_modal(){
+		// get element 0
+		var modal = document.getElementsByClassName( "container" )[ 0 ];
+		modal.style.display = "block";
+	}
+
+	function hide_modal(){
+		// get element 0
+		var modal = document.getElementsByClassName( "container" )[ 0 ];
+		modal.style.display = "none";
+	}
+
+
+</script>
+
+</body>
+</html>
+
