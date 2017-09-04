@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo modal-image
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+
+
+
+	<h3>
+		At the very first step, we declare a <mark>img</mark> tag in which we have a <mark>jpg</mark>	and set the width of it to <mark>300px</mark>.
+		When you click on the image, the width of it is changed to <mark>900px</mark> and meanwhile the body background-color is become black with opacity <mark>0.4</mark>.
+		<mark>SEE THE NEXT STEP</mark>
+	</h3>
+
+	<img id="img1"  src="w2.jpg" style="width: 300px;">
+
+
+
+</body>
+
+<script>
+	"use strict";
+
+	var img1 = document.getElementById( "img1" );
+	var body = document.getElementsByTagName( "body" )[0];
+
+	img1.onclick = function(){
+		img1.style.width = "900px";
+		img1.style.opacity = "1";
+		body.style.backgroundColor = "rgba( 0, 0, 0, 0.4 )";
+	}
+
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    opacity: .5;
+    transition: 1s;
+}
+img:hover{
+    opacity: .8;
+}
