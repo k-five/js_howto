@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo modal-image
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+
+
+
+	<p>
+		At the very first step, we declare a <mark>img</mark> tag in which we have a <mark>jpg</mark>	and set the width of it to <mark>300px</mark>.
+		When you click on the image, the width of it is changed to <mark>900px</mark> and meanwhile the body background-color is become black with opacity <mark>0.4</mark>.
+	</p>
+	<p>
+		In the second step: we just crate a <mark>span</mark> and define a function to close the image. The close class has <mark>position: absolute</mark> so that it can be put right and above.
+	</p>
+	<h3>
+		For the third step: we use different mechanism. In the step 2, we used body for the background, but in this step we will use <span class="note">div</span>. As you can see <span class="note">in the code</span> we have used <mark>img</mark> tags. One have been set and one is empty, but after click on the first one, we will set the empty one. Also for the image description I have used an <mark>p</mark> tag.
+		<mark>SEE THE NEXT STEP</mark>
+	</h3>
+
+	<!-- it should be out of the all dives -->
+	<img id="img1"  src="w2.jpg" style="width: 300px;">
+
+	<div class="modal-image_background">
+
+		<span id="close_modal-image">&times;</span>
+
+		<img id="img2"  alt="a modal-image image" >
+		<h3 id="img_description"></h3>
+
+	</div>
+
+</body>
+
+<script>
+	"use strict";
+
+	var background   = document.getElementsByClassName( "modal-image_background" )[ 0 ];
+	var close_button = document.getElementById( "close_modal-image" );
+	var img1        = document.getElementById( "img1" );
+	var img2        = document.getElementById( "img2" );
+	var img_d       = document.getElementById( "img_description" );
+
+	img1.onclick = function() {
+		background.style.display   = "block";
+		close_button.style.display = "block";
+
+		img2.src = this.src;
+		img_d.innerHTML = "this text is going to be inserted in the p tag, for the image description.";
+	}
+
+	close_button.onclick = function(){
+		background.style.display   = "none";
+		close_button.style.display = "none";	
+	}
+
+
+
+</script>
+
+</body>
+</html>
+
