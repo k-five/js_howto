@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+span{
+    color: red;
+    font-weight: bold;
+}
+.image_row{
+}
+.each_image{
+}
+div img{
+    width: 15%;
+    float: left;
+    padding: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+div img:hover{
+    box-shadow: 0 4px 8px gray;
+}
+h1{
+    clear: left;
+}
+#temp{
+  width: 40%;
+}
