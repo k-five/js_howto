@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo: light-box (=Modal Image Gallery)
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+<body>
+
+	<p>
+		In the first step: we just create an array of "jpg" file
+		 and then by clicking on "image", with a JS function (=show(?)), we will show that image.
+	</p>
+
+	<p>
+		In the second step: I added second div named <span class="note">image_row_2</span> to hold the new style of the exact same images.
+		 after clicking on these images, we will switch to the new style. Plus adding a <span class="note">close_button</span> for going back to the normal style that we have had before. And for selected-image I used <mark>opacity and for loop</mark>
+	</p>
+
+	<h3>
+		For the third step: we want to show the main frame that holds a selected image. I added a <span class="note">img #temp</span> tag for that. Then just refer its <mark>src</mark> to the corresponding <mark>src</mark> for that element that have been selected.(= clicked)
+	</h3>
+
+	<div class="image_row">
+
+		<div class="each_image">
+			<img src="w2.jpg" onclick="show( 0 );">
+		</div>
+		<div class="each_image">
+			<img src="w22.jpg" onclick="show( 1 );">
+		</div>
+		<div class="each_image">
+			<img src="w23.jpg" onclick="show( 2 );">
+		</div>
+
+	</div>
+
+	<div class="image_row_2">
+
+
+		<div class="each_image">
+			<img src="" onclick="show( 0 )">
+		</div>
+		<div class="each_image">
+			<img src="" onclick="show( 1 )">
+		</div>
+		<div class="each_image">
+			<img src="" onclick="show( 2 )">
+		</div>
+
+		<span id="close" >
+			&times;
+		</span>
+		<p id="image_detail" style="color: #fff; position: relative; top: 450px; right: 670px;" >you are clicked element: </p>
+
+	</div>
+
+	<img id="temp" src="">
+		
+
+
+
+
+</body>
+
+<script>
+	"use strict";
+
+	const image_array = [ "w2.jpg", "w22.jpg", "w23.jpg" ];
+
+	var images = document.getElementsByTagName( "img" );
+	var image_row = document.getElementsByClassName( "image_row" )[ 0 ];
+	var image_row2 = document.getElementsByClassName( "image_row_2" )[ 0 ];
+
+	var close_button = document.getElementById( "close" );
+
+	var image_temp = document.getElementById( "temp" );
+
+	
+	function show( element ){
+		images[ 3 ].src = images[ 0 ].src;
+		images[ 4 ].src = images[ 1 ].src;
+		images[ 5 ].src = images[ 2 ].src;
+
+		image_row.style.display = "none";
+		image_row2.style.display = "block";
+
+		for( var index = 0; index < images.length; ++index ){
+			images[ index ].style.opacity = "0.6";
+		}
+
+		images[ element + 3 ].style.opacity = "1";
+		image_temp.src = images[ element + 3 ].src;
+		image_temp.style.opacity = "1";
+
+		document.getElementById( "image_detail" ).innerHTML =
+			"you clicked the element: " + element;
+	}
+
+	close_button.onclick = function(){
+		image_row.style.display = "block";
+		image_row2.style.display = "none";
+
+		for( var index = 0; index < images.length - 3; ++index ){
+			images[ index ].style.opacity = "1	";
+		}
+
+		image_temp.style.opacity = "0";
+
+	}
+
+
+
+</script>
+
+</body>
+</html>
+
