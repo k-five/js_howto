@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo: search-list
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+	<p>
+		First stop: <br>
+			crate an input for search-box.
+			create a <mark>ul</mark> along with its <mark>li</mark>s and doing some <span class="note">CSS</span> for styling.
+			Observe <mark>box-sizing (=CSS3 feature)</mark>
+	</p>
+
+	<p>
+		Second step: <br>
+			The main thing is the event handler <mark>onkekup</mark> javeScript function, in our <mark>input</mark>. Type some letters and see the output below.
+	</p>
+
+	<h4>
+		For the third step: we only need to add a <span class="note">for</span > for iteration over all <mark>li</mark>	tag(s); and using an <span class="note">if</span> to check for availability of <mark>the value of input</mark>. if true; display it <span class="note">block</span>, otherwise <span class="note">none</span>. And I put 2 button for either turning on/off case sensitivity of searching. <span class="note">NOTE: you cannot turn case-sensitive on/off live</span>
+	</h4>
+
+	<input id="input1" type="text" name="search-box" placeholder="looking for..." title="enter you word here" onkeyup="fliter_list()">
+
+
+	<ul class="ulist">
+		<li class='header' >ordinal number</li>
+		<li>first</li>
+		<li>second</li>
+		<li>third</li>
+
+		<li class='header' >number</li>
+		<li>one</li>
+		<li>two</li>
+		<li>three</li>
+
+		<li class='header' >letter</li>
+		<li>A</li>
+		<li>B</li>
+		<li>C</li>
+	</ul>
+
+	<br>
+	<hr>
+	<button onclick="icase( 1 )" >turn on case sensitive</button>
+	<button onclick="icase( 0 )" >turn off case sensitive</button>
+</body>
+
+<script>
+	"use strict";
+
+	var case_sensitive = 0;
+
+	function icase( value ){
+		case_sensitive = value;
+	}
+
+	function fliter_list(){
+		var input = document.getElementById( "input1" );
+		var value = input.value.toString();
+
+		// document.getElementById( "output" ).innerHTML = 
+		// 	"you are looking for: " + value;
+
+		const lis = document.getElementsByTagName( "li" );
+		for( var index = 0; index < lis.length; ++index )
+		{
+			var content = ( case_sensitive == 1 
+			? lis[ index ].innerHTML
+			: lis[ index ].innerHTML.toLowerCase() );
+			if( content.indexOf( value ) > -1 )
+			{
+				lis[ index ].style.display = "block";
+			}
+			else
+			{
+				lis[ index ].style.display = "none";
+			}
+		}
+
+	}
+
+</script>
+
+</body>
+</html>
+
