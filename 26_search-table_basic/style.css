@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+}
+.note{
+    color: #f00;
+}
+.step{
+    color: #00aa00;
+}
+/****************************/
+/****************************/
+
+input, table {
+    margin-left: 25%;
+    width: 50%;
+    padding: 5px;
+
+    text-align: left;
+    box-sizing: border-box;
+
+    border-collapse: collapse;
+}
+input:focus{
+    background-color: #ffff00;
+}
+
+td,th{
+    padding: 5px;
+
+    border-bottom: 1px red solid; 
+}
+
+tr{
+    background-color: #eee;
+}
+tr#header{
+  background-color: #ece;
+}
+tr:hover:not(#header){
+    background-color: #ff0;
+    cursor: pointer;
+}
