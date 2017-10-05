@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo: search-table
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+	<p>
+	<span class="step">First step:</span> Create an input form. Then create a table. A <mark>tr</mark>	 with id <span class="note">header</span> to prevent from <mark>hover</mark> by mouse; box-sizing to  match all the sizes and border-collapse, for collapsing.
+	</p>
+
+	<p>
+		<span class="step">Second step:</span> Now it is time to implement search function, based on <mark>onkeyup</mark> JaveScript function.
+	</p>
+
+	<h4>
+		<span class="step">and the third step:</span> with the help of <mark>indexOf</mark> JavaScaript function or <mark>index / 2 + 1</mark>, we can complete our search-table. Try it with <span class="note">one, two, and so on</span> or <span class="note">1, 2, and so on</span>. Note that counter in the for loop is: 0, 2, 4, 6, 8, 10; because we have 10 <mark>td</mark> elements.
+	</h4>
+
+	<input id="input1" type="text" name="search-table" onkeyup="searching()" placeholder="looking for...">
+
+	<table id="table1">
+		<tr id="header">
+		    <th style="width:60%;">Number</th>
+		    <th style="width:40%;">Ordinal Number</th>
+		</tr>
+		<tr>
+			<td>one</td>
+			<td>first</td>
+		</tr>
+		<tr>
+			<td>two</td>
+			<td>second</td>
+		</tr>
+		<tr>
+			<td>three</td>
+			<td>third</td>
+		</tr>
+		<tr>
+			<td>four</td>
+			<td>fourth</td>
+		</tr>
+		<tr>
+			<td>five</td>
+			<td>fifth</td>
+		</tr>
+
+	</table>
+
+	<h3 id="output" style="margin-left: 25%;">you entered: </h3>
+	<h3 id="output2" style="margin-left: 25%;">you matched: </h3>
+
+</body>
+
+<script>
+	"use strict";
+
+	function searching()
+	{
+		// getting first one NOT second (= td)
+		const input_value = document.getElementById( 'input1' );
+		const value       = input_value.value;
+
+		var output  = document.getElementById( 'output' );
+		var output2 = document.getElementById( 'output2' );
+
+		output.innerHTML  = "you entered: " +  value;
+		output2.innerHTML = "you matched: ";
+
+		const all_td = document.getElementsByTagName( 'td' );
+		
+		for( var index = 0; index < all_td.length; index += 2 )
+		{
+			if( all_td[ index ].innerHTML.indexOf( value ) > -1  || value == index / 2 + 1 ) 
+			{
+				output2.innerHTML = "you matched: " + value;
+				all_td[ index ].style.display = "";
+				all_td[ index + 1 ].style.display = "";
+			}
+			else
+			{
+				all_td[ index ].style.display = "none";
+				all_td[ index + 1 ].style.display = "none";
+			}
+		}
+	}
+
+</script>
+
+</body>
+</html>
+
