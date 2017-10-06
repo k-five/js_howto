@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		HowTo: sort
+	</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+	<h4>
+		<span class="step">First step: </span> create a very simple table for sort. iterate over it; store the contents of each <mark>li</mark> and <span class="note">push</span> them (=element) to a new array and then after sorting; return them back to <mark>li</mark>s.
+	</h4>
+
+	<button onclick="sorting()">sort the list</button>
+	<table>
+		<ul>
+			<li>C</li>
+			<li>F</li>
+			<li>Z</li>
+			<li>A</li>
+			<li>O</li>
+			<li>B</li>
+			<li>X</li>
+			<li>H</li>
+			<li>N</li>
+			<li>M</li>
+		</ul>
+	</table>
+
+	<p id="output">result: </p>
+</body>
+
+<script>
+	"use strict";
+
+	function sorting()
+	{
+		var output   = document.getElementById( 'output' );
+		const all_li = document.getElementsByTagName( 'li' );
+
+		var array_of_li = [];
+
+		for( var index = 0; index < all_li.length; ++index )
+		{
+			array_of_li.push( all_li[ index ].innerHTML );
+		}
+
+		// sort the array
+		array_of_li.sort();
+
+		for( var index = 0; index < array_of_li.length; ++index )
+		{
+			all_li[ index ].innerHTML = array_of_li[ index ];
+		}
+
+		output.innerHTML = "result: sorted";
+	}
+
+</script>
+
+</body>
+</html>
+
